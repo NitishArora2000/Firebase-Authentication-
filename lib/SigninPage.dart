@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class SigninPage extends StatefulWidget {
   @override
@@ -139,13 +140,16 @@ class _SigninPageState extends State<SigninPage> {
                             ),
                           ),
                         ),
-                        GestureDetector(
-                          onTap: naviagteToSignupPage,
-                          child: Text(
-                            'Create An Account',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 16.0,
+                        Container(
+                          padding: EdgeInsets.only(top: 30),
+                          child: GestureDetector(
+                            onTap: naviagteToSignupPage,
+                            child: Text(
+                              'Create An Account',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 16.0,
+                              ),
                             ),
                           ),
                         )

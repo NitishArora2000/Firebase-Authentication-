@@ -56,7 +56,7 @@ class _SignupPageState extends State<SignupPage> {
       _formkey.currentState.save();
       try {
         FirebaseUser user = await _auth.createUserWithEmailAndPassword(
-            email: _email, password: _password);
+            email: _email.trim(), password: _password);
         if (user != null) {
           UserUpdateInfo updateuser = UserUpdateInfo();
           updateuser.displayName = _name;
@@ -74,7 +74,7 @@ class _SignupPageState extends State<SignupPage> {
   //       UserCredential user = await _auth.createUserWithEmailAndPassword(
   //           email: _email, password: _password);
   //       if (user != null) {
-  //         _auth.authStateChanges().listen((event) { 
+  //         _auth.authStateChanges().listen((event) {
   //           event.updateProfile(displayName: _name);
   //         });
   //       }
@@ -172,13 +172,16 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                           ),
                         ),
-                        GestureDetector(
-                          onTap: navigatetosigninScreen,
-                          child: Text(
-                            'Go To Sign In Page',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 16.0,
+                        Container(
+                          padding: EdgeInsets.only(top: 30),
+                          child: GestureDetector(
+                            onTap: navigatetosigninScreen,
+                            child: Text(
+                              'Go To Sign In Page',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 16.0,
+                              ),
                             ),
                           ),
                         )
